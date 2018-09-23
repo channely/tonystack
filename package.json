@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Channely/tonystack/issues"
   },
-  "homepage": "https://github.com/Channely/tonystack#readme"
+  "homepage": "https://github.com/Channely/tonystack#readme",
+  "devDependencies": {
+    "vis": "^4.21.0"
+  }
 }
