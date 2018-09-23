@@ -1,0 +1,19 @@
+{
+  "name": "tonystack",
+  "version": "0.0.1",
+  "description": "Tony's task management tool.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Channely/tonystack.git"
+  },
+  "author": "Channely",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Channely/tonystack/issues"
+  },
+  "homepage": "https://github.com/Channely/tonystack#readme"
+}
