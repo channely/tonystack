@@ -9,23 +9,48 @@
         body, html {
             font-family: sans-serif;
         }
+        .vis-item.red {
+            color: white;
+            background-color: red;
+            border-color: darkred;
+        }
     </style>
 </head>
 <body>
 <div id="visualization"></div>
 
 <script type="text/javascript">
+    // DOM element where the Timeline will be attached
     var container = document.getElementById('visualization');
-    var data = [
-        {id: 1, content: 'item 1', start: '2013-04-20'},
-        {id: 2, content: 'item 2', start: '2013-04-14'},
-        {id: 3, content: 'item 3', start: '2013-04-18'},
-        {id: 4, content: 'item 4', start: '2013-04-16', end: '2013-04-19'},
-        {id: 5, content: 'item 5', start: '2013-04-25'},
-        {id: 6, content: 'item 6', start: '2013-04-27'}
-    ];
+
+    // Create a DataSet (allows two way data-binding)
+    var items = new vis.DataSet([
+        {id: 1, content: 'item 1', start: '2013-04-20', className: 'red', group: 1},
+        {id: 2, content: '<a href="https://github.com">GitHub</a>', start: '2013-04-14', group: 1},
+        {id: 3, content: 'item 3', start: '2013-04-18', end: null, group: 2},
+        {id: 31, content: 'item 31', start: '2013-04-19', type: 'box', group: 1},
+        {id: 32, content: 'item 32', start: '2013-04-20', type: 'point', group: 1},
+        {id: 4, content: 'item 4', start: '2013-04-16', end: '2013-04-19', align: 'center', group: 2},
+        {id: 41, content: 'item 41', start: '2013-04-17', end: '2013-04-20', type: 'range', group: 1},
+        {id: 42, content: 'item 42', start: '2013-04-15', end: '2013-04-18', type: 'background', group: 1},
+        {id: 43, content: 'item 43', start: '2013-04-18', end: '2013-04-21', editable: true, group: 1},
+        {id: 44, content: 'item 44', start: '2013-04-19', end: '2013-04-22', editable: {remove: true, updateGroup: true, updateTime: true}, group: 2},
+        {id: 5, content: 'item 5', start: '2013-04-25', title: 'item title', group: 1},
+        {id: 6, content: 'item 6', start: '2013-04-27', title: '<a href="https://github.com">GitHub</a>', group: 3}
+    ]);
+
+    // Create a Groups
+    var groups = [
+        {id: 1, content: 'Group 1'},
+        {id: 2, content: 'Group 2'},
+        {id: 3, content: 'Group 3'}
+    ]
+
+    // Configuration for the Timeline
     var options = {};
-    var timeline = new vis.Timeline(container, data, options);
+
+    // Create a Timeline
+    var timeline = new vis.Timeline(container, items, groups, options);
 </script>
 </body>
 </html>
